@@ -1,6 +1,8 @@
 package io.github.oliveiraMG.architecture_spring.automaker.api;
 
 import io.github.oliveiraMG.architecture_spring.automaker.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,11 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/factory")
 public class FactoryTestController {
 
+    @Autowired
+    @Qualifier("turboEngine")
     private Engine engine;
-
-    public FactoryTestController(Engine engine) {
-        this.engine = engine;
-    }
 
     @PostMapping
     public StatusCar startCar(@RequestBody Key key) {
