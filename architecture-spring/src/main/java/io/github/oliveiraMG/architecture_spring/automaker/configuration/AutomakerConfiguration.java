@@ -4,6 +4,7 @@ import io.github.oliveiraMG.architecture_spring.automaker.Engine;
 import io.github.oliveiraMG.architecture_spring.automaker.MotorType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class AutomakerConfiguration {
@@ -20,6 +21,7 @@ public class AutomakerConfiguration {
     }
 
     @Bean(name = "electricEngine")
+    @Primary
     public Engine electricEngine() {
         var motor = new Engine();
         motor.setCylinders(0);
